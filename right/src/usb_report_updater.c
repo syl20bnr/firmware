@@ -430,7 +430,7 @@ void UpdateUsbReports(void)
         usbMouseAction();
     }
 
-    if ((previousLayer != LayerId_Base || HasUsbBasicKeyboardReportChanged || HasUsbMediaKeyboardReportChanged || HasUsbSystemKeyboardReportChanged || HasUsbMouseReportChanged) && IsHostSleeping) {
+    if (IsHostSleeping && (previousLayer != LayerId_Base || HasUsbBasicKeyboardReportChanged || HasUsbMediaKeyboardReportChanged || HasUsbSystemKeyboardReportChanged || HasUsbMouseReportChanged)) {
         WakeUpHost(true); // Wake up the host if any key is pressed and the computer is sleeping.
     }
 }
